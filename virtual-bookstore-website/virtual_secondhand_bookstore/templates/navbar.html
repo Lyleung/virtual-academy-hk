@@ -1,0 +1,28 @@
+<div>
+    {% url 'index' as index_url %}
+<!--    <span><a href="/">Home</a></span>-->
+    <span>{% if request.path == index_url %}Home{% else %}<a href="{% url 'index' %}">Home</a>{% endif %}</span>
+<!--    it will make that home is fade out in home page-->
+<!--    reference variable with double tag, instead of look up again-->
+<!--    <span><a href="{% url 'about' %}">About</a></span>-->
+<!--    <span><a href="{% url 'contact' %}">Contact</a></span>-->
+
+    {% url 'about' as about_url %}
+    <span>{% if request.path == about_url %}About{% else %}<a href="{% url 'about' %}">About</a>{% endif %}</span>
+    {% url 'contact' as contact_url %}
+    <span>{% if request.path == contact_url %}Contact{% else %}<a href="{% url 'contact' %}">Contact</a>{% endif %}</span>
+<!--    change url in one place but bring you to the same place everywhere-->
+<!--    <span>About</span>-->
+<!--    <span>Contact</span>-->
+
+    <span style="float:right">
+        {% if user.is_authenticated %}
+            {% url 'profile' as profile_url %}
+            <span>Hi {% if request.path == pofile_url %}{{ user.username }}{% else %}<a href="{{ profile_url }}">{{ user.username }}</a>{% endif %}</span>
+<!--            <span>Hi {{ user.username }}!</span>-->
+            <span><a href="{% url 'logout' %}">logout</a></span>
+        {% else %}
+            <span><a href="{% url 'login' %}">Login</a></span>
+        {% endif %}
+    </span>
+</div>

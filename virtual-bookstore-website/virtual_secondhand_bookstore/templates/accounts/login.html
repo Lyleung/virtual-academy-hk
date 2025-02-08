@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Loginnnn{% endblock %}
+
+{% block content %}
+<h2>
+    Login
+</h2>
+<form method="post">
+    {% csrf_token %}
+<!--    prevent people hack your website-->
+    {{ form.as_p }}
+    <button type="submit">Log IN</button>
+<!--    throw error: Please enter a correct username and password. Note that both fields may be case-sensitive-->
+<!--    because there is no user in the database-->
+</form>
+{% endblock %}
