@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     #  these are all third party apps
     #   can also download apps from github or make own apps
+    "virtual_secondhand_bookstore.apps.accounts",
 ]
 # execute some codes before receiving a request from views.py
 MIDDLEWARE = [

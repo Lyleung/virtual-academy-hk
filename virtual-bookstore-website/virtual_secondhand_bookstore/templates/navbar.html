@@ -20,9 +20,9 @@
             {% url 'profile' as profile_url %}
             <span>Hi {% if request.path == pofile_url %}{{ user.username }}{% else %}<a href="{{ profile_url }}">{{ user.username }}</a>{% endif %}</span>
 <!--            <span>Hi {{ user.username }}!</span>-->
-            <span><a href="{% url 'logout' %}">logout</a></span>
+            <span><a href="{{ logout_url }}">logout</a></span>
         {% else %}
-            <span><a href="{% url 'login' %}">Login</a></span>
+            <span><a href="{{ login_url }}">Login</a></span>
         {% endif %}
     </span>
 </nav>
